@@ -5,6 +5,7 @@ import OpenWeather from './services/OpenWeather';
 
 import City from './components/City';
 import Description from './components/Description';
+import Detail from './components/Detail';
 import Loader from './components/Loader';
 import Temperature from './components/Temperature';
 
@@ -59,6 +60,10 @@ class App extends Component {
             <Description description={this.state.weather.weather[0].description} />
             <City city={this.state.ipdata.city} />
             <Temperature temperature={this.state.weather.main.temp} />
+            <div className="details">
+              <Detail title="Humidity" value={this.state.weather.main.humidity} />
+              <Detail title="Wind" value={this.state.weather.wind.speed} />
+            </div>
           </>
         }
       </div>

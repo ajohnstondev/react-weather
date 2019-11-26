@@ -1,0 +1,11 @@
+.Detail {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+
+  .title {
+    font-weight: 300;
+    text-transform: uppercase;
+    color: grey;
+  }
+}
