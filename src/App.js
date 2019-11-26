@@ -8,6 +8,7 @@ import OpenWeather from './services/OpenWeather';
 import City from './components/City';
 import Description from './components/Description';
 import Detail from './components/Detail';
+import Icon from './components/Icon';
 import Loader from './components/Loader';
 import Temperature from './components/Temperature';
 
@@ -62,6 +63,7 @@ class App extends Component {
             <Zoom>
               <Description description={this.state.weather.weather[0].description} />
               <City city={this.state.ipdata.city} />
+              <Icon icon={this.state.weather.weather[0].icon} />
               <Temperature temperature={this.state.weather.main.temp} />
               <div className="details">
                 <Detail title="Humidity" value={this.state.weather.main.humidity} />
