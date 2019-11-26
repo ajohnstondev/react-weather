@@ -1,7 +1,7 @@
 class IPData {
 
   constructor() {
-    this.URL = 'https://api.ipdata.co/?api-key='
+    this.URL = 'https://api.ipdata.co/?api-key=';
     this.key = process.env.REACT_APP_IP_DATA_API_KEY;
   }
 
