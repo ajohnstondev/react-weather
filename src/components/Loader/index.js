@@ -11,7 +11,7 @@ class Loader extends Component {
       <div className="Loader">
         <p>Looking outside for you...</p>
         <p>One second...</p>
-        <Logo />
+        <Logo className="spinner" />
       </div>
     )
   }
