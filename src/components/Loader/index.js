@@ -5,7 +5,6 @@ import { ReactComponent as Logo } from '../../svg/puff.svg';
 import './Loader.scss';
 
 class Loader extends Component {
-
   render() {
     return (
       <div className="Loader">
@@ -13,7 +12,7 @@ class Loader extends Component {
         <p>One second...</p>
         <Logo className="spinner" />
       </div>
-    )
+    );
   }
 }
 

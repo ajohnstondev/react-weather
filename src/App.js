@@ -15,15 +15,14 @@ import Temperature from './components/Temperature';
 import './App.css';
 
 class App extends Component {
-
   constructor() {
     super();
 
     this.IPData = new IPData();
     this.OpenWeather = new OpenWeather();
 
-    this.state= {
-      isLoading: true
+    this.state = {
+      isLoading: true,
     };
   }
 
@@ -39,7 +38,7 @@ class App extends Component {
       this.setState({
         isLoading: false,
         ipdata: ipdata,
-        weather: weather
+        weather: weather,
       });
 
       console.log(this.state);
@@ -57,23 +56,29 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {
-          this.state.isLoading ? <Loader /> : 
+        {this.state.isLoading ? (
+          <Loader />
+        ) : (
           <>
             <Zoom>
-              <Description description={this.state.weather.weather[0].description} />
+              <Description
+                description={this.state.weather.weather[0].description}
+              />
               <City city={this.state.ipdata.city} />
               <Icon icon={this.state.weather.weather[0].icon} />
               <Temperature temperature={this.state.weather.main.temp} />
               <div className="details">
-                <Detail title="Humidity" value={this.state.weather.main.humidity} />
+                <Detail
+                  title="Humidity"
+                  value={this.state.weather.main.humidity}
+                />
                 <Detail title="Wind" value={this.state.weather.wind.speed} />
               </div>
             </Zoom>
           </>
-        }
+        )}
       </div>
-    )
+    );
   }
 }
 
