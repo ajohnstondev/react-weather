@@ -5,7 +5,8 @@ class Icon extends Component {
     return (
       <div className="Icon">
         <img
-          src={`http://openweathermap.org/img/wn/${this.props.icon}@2x.png`}
+          src={`https://openweathermap.org/img/wn/${this.props.icon}@2x.png`}
+          alt={this.props.icon}
         />
       </div>
     );
