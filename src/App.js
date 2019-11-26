@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import Zoom from 'react-reveal/Zoom';
 
+import DarkSky from './services/DarkSky';
 import IPData from './services/IPData';
-import OpenWeather from './services/OpenWeather';
 
 import City from './components/City';
 import Description from './components/Description';
@@ -18,8 +18,8 @@ class App extends Component {
   constructor() {
     super();
 
+    this.DarkSky = new DarkSky();
     this.IPData = new IPData();
-    this.OpenWeather = new OpenWeather();
 
     this.state = {
       isLoading: true,
@@ -32,7 +32,7 @@ class App extends Component {
 
   async init() {
     const ipdata = await this.IPData.getData();
-    const weather = await this.OpenWeather.getData(ipdata);
+    const weather = await this.DarkSky.getData(ipdata);
 
     setTimeout(() => {
       this.setState({
@@ -61,18 +61,25 @@ class App extends Component {
         ) : (
           <>
             <Zoom>
-              <Description
-                description={this.state.weather.weather[0].description}
-              />
+              <Description description={this.state.weather.currently.summary} />
               <City city={this.state.ipdata.city} />
-              <Icon icon={this.state.weather.weather[0].icon} />
-              <Temperature temperature={this.state.weather.main.temp} />
+              <Icon icon={this.state.weather.currently.icon} />
+              <Temperature
+                temperature={this.state.weather.currently.temperature}
+              />
               <div className="details">
                 <Detail
                   title="Humidity"
-                  value={this.state.weather.main.humidity}
+                  value={this.state.weather.currently.humidity}
                 />
-                <Detail title="Wind" value={this.state.weather.wind.speed} />
+                <Detail
+                  title="Wind"
+                  value={this.state.weather.currently.windSpeed}
+                />
+                <Detail
+                  title="Humidity"
+                  value={this.state.weather.currently.humidity}
+                />
               </div>
             </Zoom>
           </>

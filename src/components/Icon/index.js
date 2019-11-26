@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 
+import { icons } from '../../helpers/icons';
+
+import './Icon.scss';
+
 class Icon extends Component {
   render() {
     return (
       <div className="Icon">
-        <img
-          src={`https://openweathermap.org/img/wn/${this.props.icon}@2x.png`}
-          alt={this.props.icon}
-        />
+        <img src={icons[this.props.icon]} alt={this.props.icon} />
       </div>
     );
   }
