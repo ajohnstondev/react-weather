@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Zoom from 'react-reveal/Zoom';
+
 import IPData from './services/IPData';
 import OpenWeather from './services/OpenWeather';
 
@@ -57,13 +59,15 @@ class App extends Component {
         {
           this.state.isLoading ? <Loader /> : 
           <>
-            <Description description={this.state.weather.weather[0].description} />
-            <City city={this.state.ipdata.city} />
-            <Temperature temperature={this.state.weather.main.temp} />
-            <div className="details">
-              <Detail title="Humidity" value={this.state.weather.main.humidity} />
-              <Detail title="Wind" value={this.state.weather.wind.speed} />
-            </div>
+            <Zoom>
+              <Description description={this.state.weather.weather[0].description} />
+              <City city={this.state.ipdata.city} />
+              <Temperature temperature={this.state.weather.main.temp} />
+              <div className="details">
+                <Detail title="Humidity" value={this.state.weather.main.humidity} />
+                <Detail title="Wind" value={this.state.weather.wind.speed} />
+              </div>
+            </Zoom>
           </>
         }
       </div>
