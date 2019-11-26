@@ -8,7 +8,15 @@
 }
 
 .City {
+  margin-top: 16px;
+}
+
+.Icon {
   margin-top: 32px;
+}
+
+.Temperature {
+  margin-top: 16px;
 }
 
 .details {
