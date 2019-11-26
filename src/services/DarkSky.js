@@ -6,9 +6,19 @@ class DarkSky {
   }
 
   async getData(ipdata) {
-    const response = await fetch(
+    const url = new URL(
       `${this.URL}${this.key}/${ipdata.latitude},${ipdata.longitude}`
     );
+    const params = {
+      units: 'auto',
+      exclude: ['minutely', 'hourly', 'alerts', 'flags'],
+    };
+
+    Object.keys(params).forEach(key =>
+      url.searchParams.append(key, params[key])
+    );
+
+    const response = await fetch(url);
     const data = await response.json();
 
     return data;
