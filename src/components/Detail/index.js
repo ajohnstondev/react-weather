@@ -7,7 +7,9 @@ class Detail extends Component {
     return (
       <div className="Detail">
         <div className="title">{this.props.title}</div>
-        <div className="value">{this.props.value}</div>
+        <div className="value">
+          {this.props.value} {this.props.unit}
+        </div>
       </div>
     );
   }

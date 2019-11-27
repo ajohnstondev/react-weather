@@ -70,15 +70,18 @@ class App extends Component {
               <div className="details">
                 <Detail
                   title="Humidity"
-                  value={this.state.weather.currently.humidity}
+                  value={this.state.weather.currently.humidity * 100}
+                  unit="%"
                 />
                 <Detail
                   title="Wind"
-                  value={this.state.weather.currently.windSpeed}
+                  value={Math.round(this.state.weather.currently.windSpeed)}
+                  unit="km/h"
                 />
                 <Detail
-                  title="Humidity"
-                  value={this.state.weather.currently.humidity}
+                  title="Rain"
+                  value={this.state.weather.currently.precipProbability * 100}
+                  unit="%"
                 />
               </div>
             </Zoom>
