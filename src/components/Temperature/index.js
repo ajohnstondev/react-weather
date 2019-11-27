@@ -4,9 +4,11 @@ import './Temperature.scss';
 
 class Temperature extends Component {
   render() {
+    const temperature = this.props.temperature;
+
     return (
       <div className="Temperature">
-        <span className="value">{Math.round(this.props.temperature)}</span>
+        <span className="value">{Math.round(temperature)}</span>
         <sup className="unit">°</sup>
       </div>
     );

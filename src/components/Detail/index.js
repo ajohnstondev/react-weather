@@ -4,11 +4,13 @@ import './Detail.scss';
 
 class Detail extends Component {
   render() {
+    const { title, value, unit } = this.props;
+
     return (
       <div className="Detail">
-        <div className="title">{this.props.title}</div>
+        <div className="title">{title}</div>
         <div className="value">
-          {this.props.value} {this.props.unit}
+          {value} {unit}
         </div>
       </div>
     );

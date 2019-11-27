@@ -6,9 +6,11 @@ import './Icon.scss';
 
 class Icon extends Component {
   render() {
+    const icon = this.props.icon;
+
     return (
       <div className="Icon">
-        <img src={icons[this.props.icon]} alt={this.props.icon} />
+        <img src={icons[icon]} alt={icon} />
       </div>
     );
   }

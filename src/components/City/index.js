@@ -4,7 +4,9 @@ import './City.scss';
 
 class City extends Component {
   render() {
-    return <div className="City">{this.props.city}</div>;
+    const city = this.props.city;
+
+    return <div className="City">{city}</div>;
   }
 }
 

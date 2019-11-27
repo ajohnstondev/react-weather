@@ -4,9 +4,9 @@ import './Description.scss';
 
 class Description extends Component {
   render() {
-    return (
-      <div className="Description">{this.props.description.toUpperCase()}</div>
-    );
+    const description = this.props.description.toUpperCase();
+
+    return <div className="Description">{description}</div>;
   }
 }
 
