@@ -23,6 +23,8 @@ class App extends Component {
 
     this.state = {
       isLoading: true,
+      ipdata: {},
+      weather: {},
     };
   }
 
@@ -40,8 +42,6 @@ class App extends Component {
         ipdata: ipdata,
         weather: weather,
       });
-
-      console.log(this.state);
     }, 1000);
   }
 
@@ -54,6 +54,9 @@ class App extends Component {
   }
 
   render() {
+    const ipdata = this.state.ipdata;
+    const weather = this.state.weather;
+
     return (
       <div className="App">
         {this.state.isLoading ? (
@@ -61,26 +64,24 @@ class App extends Component {
         ) : (
           <>
             <Zoom>
-              <Description description={this.state.weather.currently.summary} />
-              <City city={this.state.ipdata.city} />
-              <Icon icon={this.state.weather.currently.icon} />
-              <Temperature
-                temperature={this.state.weather.currently.temperature}
-              />
+              <Description description={weather.currently.summary} />
+              <City city={ipdata.city} />
+              <Icon icon={weather.currently.icon} />
+              <Temperature temperature={weather.currently.temperature} />
               <div className="details">
                 <Detail
                   title="Humidity"
-                  value={this.state.weather.currently.humidity * 100}
+                  value={weather.currently.humidity * 100}
                   unit="%"
                 />
                 <Detail
                   title="Wind"
-                  value={Math.round(this.state.weather.currently.windSpeed)}
+                  value={Math.round(weather.currently.windSpeed)}
                   unit="km/h"
                 />
                 <Detail
                   title="Rain"
-                  value={this.state.weather.currently.precipProbability * 100}
+                  value={weather.currently.precipProbability * 100}
                   unit="%"
                 />
               </div>
