@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import Zoom from 'react-reveal/Zoom';
-
 import DarkSky from './services/DarkSky';
 import IPData from './services/IPData';
 
@@ -63,29 +61,27 @@ class App extends Component {
           <Loader />
         ) : (
           <>
-            <Zoom>
-              <Description description={weather.currently.summary} />
-              <City city={ipdata.city} />
-              <Icon icon={weather.currently.icon} />
-              <Temperature temperature={weather.currently.temperature} />
-              <div className="details">
-                <Detail
-                  title="Humidity"
-                  value={weather.currently.humidity * 100}
-                  unit="%"
-                />
-                <Detail
-                  title="Wind"
-                  value={Math.round(weather.currently.windSpeed)}
-                  unit="km/h"
-                />
-                <Detail
-                  title="Rain"
-                  value={weather.currently.precipProbability * 100}
-                  unit="%"
-                />
-              </div>
-            </Zoom>
+            <Description description={weather.currently.summary} />
+            <City city={ipdata.city} />
+            <Icon icon={weather.currently.icon} />
+            <Temperature temperature={weather.currently.temperature} />
+            <div className="details">
+              <Detail
+                title="Humidity"
+                value={weather.currently.humidity * 100}
+                unit="%"
+              />
+              <Detail
+                title="Wind"
+                value={Math.round(weather.currently.windSpeed)}
+                unit="km/h"
+              />
+              <Detail
+                title="Rain"
+                value={weather.currently.precipProbability * 100}
+                unit="%"
+              />
+            </div>
           </>
         )}
       </div>
