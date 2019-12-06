@@ -12,6 +12,7 @@ class DarkSky {
     const params = {
       units: 'auto',
       exclude: ['alerts', 'flags'],
+      lang: 'fr',
     };
 
     Object.keys(params).forEach(key =>

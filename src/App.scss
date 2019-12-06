@@ -1,7 +1,6 @@
 .App {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 
   padding: 32px;
 
@@ -20,12 +19,36 @@
   margin-top: 16px;
 }
 
+.Description {
+  margin-top: 64px;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+  }
+}
+
 .details {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  margin-top: 16px;
+  background: #d5d7ff;
+  padding: 16px;
+  border-radius: 5px;
+}
+
+.iconAndTemperature {
+  display: flex;
+  background: #ffefd7;
+  border-radius: 5px;
   margin-top: 32px;
-  width: 60%;
 }
 
 @media screen and (min-width: 768px) {

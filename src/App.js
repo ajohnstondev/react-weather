@@ -10,8 +10,10 @@ import Icon from './components/Icon';
 import Loader from './components/Loader';
 import Temperature from './components/Temperature';
 
-import './App.css';
+import './App.scss';
 import NextDays from './components/NextDays';
+
+import LocationIcon from './svg/location.svg';
 
 class App extends Component {
   constructor() {
@@ -57,6 +59,7 @@ class App extends Component {
   render() {
     const ipdata = this.state.ipdata;
     const weather = this.state.weather;
+    console.log(ipdata, weather);
 
     return (
       <div className="App">
@@ -64,10 +67,15 @@ class App extends Component {
           <Loader />
         ) : (
           <>
+            <div className="location">
+              <img src={LocationIcon} alt="Location Icon" />
+              <City city={ipdata.city} />
+            </div>
             <Description description={weather.currently.summary} />
-            <City city={ipdata.city} />
-            <Icon icon={weather.currently.icon} />
-            <Temperature temperature={weather.currently.temperature} />
+            <div className="iconAndTemperature">
+              <Icon icon={weather.currently.icon} />
+              <Temperature temperature={weather.currently.temperature} />
+            </div>
             <div className="details">
               <Detail
                 title="Humidity"
