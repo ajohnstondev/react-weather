@@ -11,6 +11,7 @@ import Loader from './components/Loader';
 import Temperature from './components/Temperature';
 
 import './App.css';
+import NextDays from './components/NextDays';
 
 class App extends Component {
   constructor() {
@@ -35,6 +36,8 @@ class App extends Component {
     const weather = await this.DarkSky.getData(ipdata);
 
     setTimeout(() => {
+      weather.daily.data = weather.daily.data.slice(1, 4);
+
       this.setState({
         isLoading: false,
         ipdata: ipdata,
@@ -82,6 +85,7 @@ class App extends Component {
                 unit="%"
               />
             </div>
+            <NextDays days={weather.daily.data} />
           </>
         )}
       </div>

@@ -11,7 +11,7 @@ class DarkSky {
     );
     const params = {
       units: 'auto',
-      exclude: ['minutely', 'hourly', 'alerts', 'flags'],
+      exclude: ['alerts', 'flags'],
     };
 
     Object.keys(params).forEach(key =>
